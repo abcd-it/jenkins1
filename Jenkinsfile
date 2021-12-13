@@ -14,7 +14,9 @@ pipeline {
         }
         stage('deploy') {
             steps {
-                echo 'Hello deploy'
+                docker.image('httpd').withRun('-p 8080:80') {c ->
+                sh "curl -i http://${hostIp(c)}:8080/"
+                 }
             }
         }
     }
