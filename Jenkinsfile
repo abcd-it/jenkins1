@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent docker.image('httpd')
 
     stages {
         stage('build') {
@@ -14,7 +14,7 @@ pipeline {
         }
         stage('deploy') {
             steps {
-                docker.image('httpd')
+                echo "Good Day"
             }
         }
     }
