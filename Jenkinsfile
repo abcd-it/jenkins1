@@ -1,22 +1,11 @@
 pipeline {
-    agent { 
-        docker { image 'httpd:latest' }
+    agent {
+        docker { image 'node:16.13.1-alpine' }
     }
-
     stages {
-        stage('build') {
+        stage('Test') {
             steps {
-                echo 'Hello World'
-            }
-        }
-        stage('test') {
-            steps {
-                echo 'Hello test'
-            }
-        }
-        stage('deploy') {
-            steps {
-                echo "Good Day"
+                sh 'node --version'
             }
         }
     }
